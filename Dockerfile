@@ -1,6 +1,11 @@
 # Use an official Python runtime as a parent image
 FROM python:buster
 
+LABEL org.opencontainers.image.source https://github.com/flexchar/language-identification-api/
+LABEL org.opencontainers.image.description="Fast language identification API using FastText"
+LABEL org.opencontainers.image.licenses=MIT
+LABEL org.opencontainers.image.authors="Lukas Va"
+
 # Set the working directory in the container
 WORKDIR /app
 
