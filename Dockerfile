@@ -5,7 +5,7 @@ FROM python:buster
 WORKDIR /app
 
 # Install the required libraries
-RUN pip install fasttext Flask
+RUN pip install fasttext Flask gunicorn
 
 # Copy the pre-trained model to the container
 COPY lid.176.bin .
@@ -14,4 +14,4 @@ COPY lid.176.bin .
 COPY app.py .
 
 # Run the command to start the API endpoint
-CMD ["python", "app.py"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app:app"]
